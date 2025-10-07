@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1759663904 source:/home/admin/Documents/Interfaces/I2C/main.c
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<fcntl.h>
+	<sys/ioctl.h>
+	<linux/i2c-dev.h>
+
