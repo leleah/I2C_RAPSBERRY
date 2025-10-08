@@ -6,12 +6,9 @@
 #include <linux/i2c-dev.h>
 
 #define I2C_BUS "/dev/i2c-1"
-#define SCD30_ADDR 0x61
-unsigned char cmd[2]={0x00,0x10}; //start measurement 0x0010
-unsigned char status_cmd[2] = {0x02,0x02};
-unsigned char read_cmd[2]={0x03,0x00}; //read measurement 0x0300
-unsigned char buff[3];
-unsigned char data_buff[18];
+#define LM75_ADDR 0x48
+unsigned char reg=0x00; // temp registr
+unsigned char buff[2];
 
 int main()
 {
@@ -22,41 +19,22 @@ fd=open(I2C_BUS,O_RDWR);
             perror("Can't open i2c bus");
             return 1;
         }
-        if(ioctl(fd,I2C_SLAVE,SCD30_ADDR)<0)
+        if(ioctl(fd,I2C_SLAVE,LM75_ADDR)<0)
         {
             perror("Can't connect to scd30");
             close(fd);
             return 1;
         }
 
-printf("Connected to scd30 (0x%02X)\r\n",SCD30_ADDR);
+printf("Connected to lm75 (0x%02X)\r\n",LM75_ADDR);
 
-write(fd,cmd,2);
-sleep(3);
-
-do
-{
-
-    write(fd,status_cmd,2);
-
-    read(fd,buff,3);
-    for(int i=0;i<3;i++)
-{
-    printf("0x%x\r\n",buff[i]);
-}
-    sleep(2);
-}while((buff[0]<<8) | (buff[1] == 1));
-
-sleep(3);
-
-
-write(fd,read_cmd,2);
-
-read(fd,data_buff,18);
-for(int i=0;i<18;i++)
-{
-    printf("%02x\r\n",data_buff[i]);
-}
+write(fd,&reg,1);
+sleep(1);
+read(fd,buff,2);
+int16_t raw =(buff[0]<<8 | buff[1]);
+raw >>=7;
+float temp = raw*0.5;
+printf("Temperature is %f ",temp);
 
 close(fd);
 return 0;
