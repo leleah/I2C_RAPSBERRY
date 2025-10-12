@@ -31,8 +31,8 @@ It’s a minimal example for learning embedded Linux I?C programming in C.
 |-----------|------------------|--------------|
 | VCC | 3.3 V (Pin 1) | Power supply |
 | GND | GND (Pin 6) | Ground |
-| SDA | GPIO 2 / SDA (Pin 3) | I?C data |
-| SCL | GPIO 3 / SCL (Pin 5) | I?C clock |
+| SDA | GPIO 2 / SDA (Pin 3) | I2C data |
+| SCL | GPIO 3 / SCL (Pin 5) | I2C clock |
 | A0–A2 | GND | Address bits (`0x48`–`0x4F`) |
 
 > In this setup, the sensor address is `0x60`.
