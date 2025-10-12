@@ -109,7 +109,7 @@ Temperature: 25.0 °C
 
 TI LM75 Datasheet (SNOS675C)
 
-Linux I?C-dev Interface Docs
+Linux I2C-dev Interface Docs
  Tags
 
 Raspberry Pi · I2C · Embedded Linux · C Programming · Sensors · Hardware Interfacing
