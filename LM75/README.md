@@ -49,7 +49,7 @@ sudo raspi-config
 ```
 sudo reboot
 ```
-###2 Verify Device Connection
+2 Verify Device Connection
 ```
 sudo apt install i2c-tools
 i2cdetect -y 1
