@@ -1,8 +1,8 @@
 <!-- PROJECT HEADER -->
-<h1 align="center"> LM75 Temperature Sensor via I?C on Raspberry Pi</h1>
+<h1 align="center"> LM75 Temperature Sensor via I2C on Raspberry Pi</h1>
 
 <p align="center">
-  <b>Read temperature data from the LM75 digital sensor via the I?C interface using C on Raspberry Pi</b><br>
+  <b>Read temperature data from the LM75 digital sensor via the I2C interface using C on Raspberry Pi</b><br>
   <sub>Created by <b>Leah</b> — Radio Electronics Engineer</sub>
 </p>
 
@@ -10,10 +10,10 @@
 
 ##  About the Project
 
-This project demonstrates direct communication with an **LM75** temperature sensor using the **I?C bus** on a **Raspberry Pi 4B**.  
+This project demonstrates direct communication with an **LM75** temperature sensor using the **I2C bus** on a **Raspberry Pi 4B**.  
 All interaction is done at the low-level via the Linux `/dev/i2c-*` interface, without external libraries.
 
-It’s a minimal example for learning embedded Linux I?C programming in C.
+It’s a minimal example for learning embedded Linux I2C programming in C.
 
 ---
 
@@ -21,9 +21,9 @@ It’s a minimal example for learning embedded Linux I?C programming in C.
 
 - **Board:** Raspberry Pi 4 Model B  
 - **Sensor:** LM75 (Texas Instruments or compatible)  
-- **Interface:** I?C bus (`/dev/i2c-1`)  
+- **Interface:** I2C bus (`/dev/i2c-1`)  
 - **Power:** 3.3 V  
-- **Pull-ups:** Built-in 4.7 k? on SDA/SCL (no external needed)
+- **Pull-ups:** Built-in 4.7 kOm on SDA/SCL (no external needed)
 
 ###  Pinout
 
@@ -41,7 +41,7 @@ It’s a minimal example for learning embedded Linux I?C programming in C.
 
 ##  Software Setup
 
-### 1 Enable I?C on Raspberry Pi
+### 1 Enable I2C on Raspberry Pi
 ```bash
 sudo raspi-config
 ```
